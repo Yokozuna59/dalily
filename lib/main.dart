@@ -1,10 +1,15 @@
-import 'package:dalily/pages/login_page.dart';
-
-import 'firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Package imports:
+import 'package:firebase_core/firebase_core.dart';
+
+// Project imports:
+import 'firebase_options.dart';
+import 'pages/login_page.dart';
+
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
