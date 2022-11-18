@@ -1,7 +1,7 @@
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-// import 'pages/homePage.dart';
+import 'pages/homePage.dart';
 import 'pages/loginPage.dart';
 import 'pages/home_page.dart';
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const loginpage(),
+      home: const MyHomePage(),
     );
   }
 }
