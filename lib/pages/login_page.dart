@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../assets/consts.dart';
 
-class loginpage extends StatelessWidget {
-  const loginpage({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
