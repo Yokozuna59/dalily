@@ -23,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CbackgroundColor,
+      backgroundColor: KbackgroundColor,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(8, 40, 8, 6),
@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  height: 90,
+                  height: 60,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [

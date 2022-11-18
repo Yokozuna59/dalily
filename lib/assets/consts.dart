@@ -2,5 +2,5 @@
 
 import 'package:flutter/material.dart';
 
-Color CbackgroundColor = const Color(0xFFFAFBFF);
-Color CmainCardColor = const Color(0xFFFFFFFF);
+Color KbackgroundColor = const Color(0xFFFAFBFF);
+Color KmainCardColor = const Color(0xFFFFFFFF);

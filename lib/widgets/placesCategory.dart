@@ -16,13 +16,10 @@ class PlacesCategory extends StatelessWidget {
         decoration: BoxDecoration(
             border: Border.all(),
             borderRadius: const BorderRadius.all(Radius.circular(100))),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(8, 4, 8, 10),
-          child: Center(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [FaIcon(icon), Text(text)])),
-        ),
+        child: Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [FaIcon(icon), Text(text)])),
       ),
     );
   }
