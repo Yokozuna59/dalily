@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:dalily/pages/guidePage.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: const GuidePage(),
     );
   }
 }
