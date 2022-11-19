@@ -1,9 +1,13 @@
 import 'package:dalily/assets/consts.dart';
+import 'package:dalily/fetch_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 
+import 'guider_profile.dart';
+
 class GuidePage extends StatelessWidget {
   const GuidePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -11,7 +15,6 @@ class GuidePage extends StatelessWidget {
     final width = size.width;
 
     return Scaffold(
-      appBar: AppBar(backgroundColor: const Color(0xFF3988C9)),
       body: ListView(
         children: <Widget>[
           Center(
@@ -72,6 +75,12 @@ class GuidePage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    )
                   ],
                 ),
                 Column(

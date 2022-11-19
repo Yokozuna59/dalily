@@ -39,7 +39,7 @@ class _UsernamePageState extends State<UsernamePage> {
                     opacity: const AlwaysStoppedAnimation(0.05),
                   ),
                 ),
-                Image.asset("lib/assets/logo-removebg-preview.png"),
+                Image.asset("lib/assets/logoV3-removebg-preview.png"),
                 IconButton(
                   icon: const Icon(Icons.arrow_back),
                   onPressed: () {

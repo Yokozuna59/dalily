@@ -10,10 +10,10 @@ class ProfileCard extends StatelessWidget {
       required this.image,
       required this.price});
 
-  num price;
-  String? name;
-  String? quote;
-  num? rate;
+  String price;
+  String name;
+  String quote;
+  String rate;
   String image;
 
   @override
@@ -22,21 +22,26 @@ class ProfileCard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          const ListTile(
-            leading: Icon(Icons.album),
-            title: Text("hi"),
-            // subtitle: Text(),
+          ListTile(
+            leading: CircleAvatar(
+              child: Image.network(image),
+            ),
+            title: Text(name),
+            subtitle: Text(quote),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
+              Card(
+                child: Text(" $rate/5"),
+              ),
               TextButton(
-                child: const Text('BUY TICKETS'),
-                onPressed: () {/* ... */},
+                child: const Text('Book'),
+                onPressed: () {},
               ),
               const SizedBox(width: 8),
               TextButton(
-                child: const Text('LISTEN'),
+                child: Text(price),
                 onPressed: () {/* ... */},
               ),
               const SizedBox(width: 8),
