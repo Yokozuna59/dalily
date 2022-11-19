@@ -54,7 +54,7 @@ class LoginPage extends StatelessWidget {
           TextButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const Username_Page()));
+                  builder: (context) => const UsernamePage()));
             }, //TODO
             child: const Text("Already have an account",
                 style: TextStyle(color: Color(0xFF3988C9), fontSize: 15)),
