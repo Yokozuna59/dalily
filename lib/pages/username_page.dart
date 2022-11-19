@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -39,6 +41,7 @@ class _Username_PageState extends State<Username_Page> {
     final size = MediaQuery.of(context).size;
     final height = size.height;
     final width = size.width;
+
     return Scaffold(
         resizeToAvoidBottomInset: true,
         backgroundColor: KbackgroundColor,
@@ -57,7 +60,13 @@ class _Username_PageState extends State<Username_Page> {
                     opacity: const AlwaysStoppedAnimation(0.05),
                   ),
                 ),
-                Image.asset("lib/assets/logo-removebg-preview.png")
+                Image.asset("lib/assets/logo-removebg-preview.png"),
+                IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
               ],
             ),
           ),
@@ -120,6 +129,13 @@ class _Username_PageState extends State<Username_Page> {
                       "Submit",
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     )),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  "Forgot password?",
+                  style: TextStyle(color: Colors.grey),
+                ),
               ),
             ]),
           ),
