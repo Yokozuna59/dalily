@@ -1,5 +1,4 @@
 // Flutter imports:
-import 'package:dalily/pages/username_page.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
