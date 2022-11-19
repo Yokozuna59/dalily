@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dalily/pages/username_page.dart';
 import 'package:flutter/material.dart';
 import '../assets/consts.dart';
@@ -28,9 +30,12 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             Container(
-                width: width * 0.4,
-                height: height * 0.3,
-                child: Image.asset("lib/assets/logoV3-removebg-preview.png"))
+              width: width * 0.6,
+              height: height * 0.6,
+              child: Padding(
+                  padding: EdgeInsets.fromLTRB(100, 0, 0, 20),
+                  child: Image.asset("lib/assets/logoV3-removebg-preview.png")),
+            )
           ],
         ),
         Column(children: <Widget>[
@@ -51,7 +56,8 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {},
                 child: const Text(
                   "Create a new account",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(
+                      color: Color.fromRGBO(21, 52, 77, 1), fontSize: 18),
                 )),
           ),
           TextButton(

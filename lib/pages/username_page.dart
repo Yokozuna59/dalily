@@ -39,7 +39,14 @@ class _UsernamePageState extends State<UsernamePage> {
                     opacity: const AlwaysStoppedAnimation(0.05),
                   ),
                 ),
-                Image.asset("lib/assets/logoV3-removebg-preview.png"),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(109, 0, 0, 20),
+                  child: Container(
+                      width: width * 0.4,
+                      height: height * 0.4,
+                      child: Image.asset(
+                          "lib/assets/logoV3-removebg-preview.png")),
+                ),
                 IconButton(
                   icon: const Icon(Icons.arrow_back),
                   onPressed: () {
@@ -90,7 +97,7 @@ class _UsernamePageState extends State<UsernamePage> {
                 width: width * 0.4,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF3988C9),
+                      backgroundColor: Color.fromRGBO(21, 52, 77, 1),
                       shadowColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
