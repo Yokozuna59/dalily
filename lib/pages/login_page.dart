@@ -27,7 +27,10 @@ class LoginPage extends StatelessWidget {
                 opacity: const AlwaysStoppedAnimation(0.05),
               ),
             ),
-            Image.asset("lib/assets/logoV3-removebg-preview.png")
+            Container(
+                width: width * 0.4,
+                height: height * 0.3,
+                child: Image.asset("lib/assets/logoV3-removebg-preview.png"))
           ],
         ),
         Column(children: <Widget>[
