@@ -6,14 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 // Project imports:
+import 'fetch_data.dart';
 import 'firebase_options.dart';
 import 'pages/login_page.dart';
+import 'models/tour_guide.dart';
+import 'pages/guider_profile.dart';
+
+List<TourGuide>? profileGuide;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  profileGuide = await getTourGuides();
   runApp(const MyApp());
 }
 
@@ -29,7 +35,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: ProfileCard(
+          name: profileGuide![0].name,
+          rate: profileGuide![0].rating,
+          quote: profileGuide![0].quote,
+          image: profileGuide![0].imageURL,
+          price: profileGuide![0].bill),
     );
   }
 }
