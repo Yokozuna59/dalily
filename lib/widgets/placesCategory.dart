@@ -7,6 +7,7 @@ class PlacesCategory extends StatelessWidget {
   final String text;
   final IconData icon;
   //TODO color for selection
+
   @override
   Widget build(BuildContext context) {
     return Padding(
