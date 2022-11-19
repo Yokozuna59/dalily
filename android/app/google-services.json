@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1055095032779",
+    "project_id": "dalily-56933",
+    "storage_bucket": "dalily-56933.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055095032779:android:0c0cccf511cf125287844e",
+        "android_client_info": {
+          "package_name": "com.example.dalily"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055095032779-htuch9eqpi7lip82pfauoenepokj4nd3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp97RQn2CaZGA3W9Xdx9uxwLx9O9QeTEg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055095032779-htuch9eqpi7lip82pfauoenepokj4nd3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1055095032779-kmk3itg6oth452u8v6sjlbqbm9rlpcmq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dalily"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,9 @@
 import 'package:dalily/assets/consts.dart';
-import 'package:dalily/pages/login_page.dart';
 import 'package:dalily/pages/profilePage.dart';
 import 'package:dalily/pages/savePage.dart';
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'home.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -13,29 +14,24 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  late int page;
+  int index = 1;
+  final screens = [
+    SavePage(),
+    HomePage(),
+    ProfilePage(),
+  ];
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration.zero, () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LoginPage()));
-    });
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+        resizeToAvoidBottomInset: true,
         backgroundColor: KbackgroundColor,
         bottomNavigationBar: CurvedNavigationBar(
           index: index,
@@ -43,17 +39,16 @@ class _MyHomePageState extends State<MyHomePage> {
           animationCurve: Curves.linearToEaseOut,
           animationDuration: const Duration(milliseconds: 300),
           items: const <Widget>[
-            Icon(Icons.map_rounded, size: 30),
+            Icon(Icons.bookmark_rounded, size: 30),
             Icon(Icons.home, size: 30),
             Icon(Icons.person_rounded, size: 30),
           ],
+          onTap: (index) {
+            setState(() {
+              this.index = index;
+            });
+          },
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
+        body: screens[index]);
   }
 }
