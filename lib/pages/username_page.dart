@@ -7,6 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../assets/consts.dart';
+import '../auth.dart';
 
 class Username_Page extends StatefulWidget {
   const Username_Page({super.key});
@@ -124,7 +125,11 @@ class _Username_PageState extends State<Username_Page> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      if (await singin(email, password)) {
+                        Navigator.pop(context);
+                      } else {}
+                    },
                     child: const Text(
                       "Submit",
                       style: TextStyle(color: Colors.white, fontSize: 18),
