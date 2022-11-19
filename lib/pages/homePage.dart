@@ -31,6 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: true,
         backgroundColor: KbackgroundColor,
         bottomNavigationBar: CurvedNavigationBar(
           index: index,

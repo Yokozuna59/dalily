@@ -18,24 +18,8 @@ class Username_Page extends StatefulWidget {
 
 // ignore: camel_case_types
 class _Username_PageState extends State<Username_Page> {
-  final myController = TextEditingController();
-  late String password;
-  late String email;
-  @override
-  void dispose() {
-    myController.dispose();
-    super.dispose();
-  }
-
-  void _printLatestValue() {
-    print('Second text field: ${myController.text}');
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    myController.addListener(_printLatestValue);
-  }
+  final passwordController = TextEditingController();
+  final usernameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -79,17 +63,13 @@ class _Username_PageState extends State<Username_Page> {
               SizedBox(
                 width: width * 0.7,
                 child: TextField(
-                  controller: myController,
+                  controller: usernameController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
                     hintText: 'Email: example@gmail.com',
                   ),
-                  onChanged: (text) {
-                    email = text;
-                    print('First text field: $text');
-                  },
                 ),
               ),
               SizedBox(
@@ -98,6 +78,7 @@ class _Username_PageState extends State<Username_Page> {
               SizedBox(
                 width: width * 0.7,
                 child: TextField(
+                  controller: passwordController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -107,10 +88,6 @@ class _Username_PageState extends State<Username_Page> {
                   obscureText: true,
                   enableSuggestions: false,
                   autocorrect: false,
-                  onChanged: (text) {
-                    password = text;
-                    print('Second text field: $text');
-                  },
                 ),
               ),
               SizedBox(height: height * 0.04),
@@ -126,7 +103,8 @@ class _Username_PageState extends State<Username_Page> {
                       ),
                     ),
                     onPressed: () async {
-                      if (await singin(email, password)) {
+                      if (await singin(
+                          usernameController.text, passwordController.text)) {
                         Navigator.pop(context);
                       } else {}
                     },

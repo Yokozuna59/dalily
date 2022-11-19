@@ -35,12 +35,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ProfileCard(
-          name: profileGuide![0].name,
-          rate: profileGuide![0].rating,
-          quote: profileGuide![0].quote,
-          image: profileGuide![0].imageURL,
-          price: profileGuide![0].bill),
+      home: const LoginPage(),
     );
   }
 }
