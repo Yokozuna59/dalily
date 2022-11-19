@@ -6,7 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 
 class Distnation extends StatelessWidget {
-  const Distnation({super.key});
+  const Distnation(
+      {super.key,
+      required this.image,
+      required this.rating,
+      required this.name});
+  final String image;
+  final num rating;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +30,7 @@ class Distnation extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(45),
-              child: Image.asset(
-                "lib/assets/h1.jpg", //TODO network image
-              ),
+              child: Image.network(image), //TODO network image
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 0, 35),
@@ -41,7 +46,7 @@ class Distnation extends StatelessWidget {
                           child: FittedBox(
                               fit: BoxFit.fitWidth,
                               child: RatingStars(
-                                value: 4, //TODO value
+                                value: rating.toDouble(), //TODO value
                                 starBuilder: (index, color) => Icon(
                                   Icons.star_rounded,
                                   color: color,
@@ -70,7 +75,7 @@ class Distnation extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      Text("Japan", style: KdistinationStyle),
+                      Text(name, style: KdistinationStyle),
                     ],
                   ), //TODO namae
                 ),

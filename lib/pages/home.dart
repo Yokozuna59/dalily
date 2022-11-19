@@ -1,13 +1,13 @@
-
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../assets/consts.dart';
+import '../fetch_data.dart';
+import '../models/destination.dart';
 import '../widgets/distnations.dart';
 import '../widgets/placesCategory.dart';
 import '../widgets/sorts.dart';
@@ -58,8 +58,14 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.all(8),
                 children: <Widget>[
-                  PlacesCategory(icon: FontAwesomeIcons.city, text: "cities",),
-                  PlacesCategory(icon: FontAwesomeIcons.tree, text: "nature",),
+                  PlacesCategory(
+                    icon: FontAwesomeIcons.city,
+                    text: "cities",
+                  ),
+                  PlacesCategory(
+                    icon: FontAwesomeIcons.tree,
+                    text: "nature",
+                  ),
                   PlacesCategory(
                       icon: FontAwesomeIcons.earthOceania, text: "seas"),
                 ],
@@ -104,10 +110,37 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   children: [
                     Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Distnation(),
-                    )
+                        height: 250,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20)),
+                        child: // create FutureBuilder from getDestaintions and pass it to the widget
+                            FutureBuilder(
+                          future: getDestinations(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              final distinations =
+                                  snapshot.data as List<Destination>;
+                              return ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: distinations.length,
+                                itemBuilder: (context, index) {
+                                  final distination = distinations[index];
+                                  return Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Distnation(
+                                      image: distination.imageURL,
+                                      name: distination.name,
+                                      rating: distination.rating,
+                                    ),
+                                  );
+                                },
+                              );
+                            } else {
+                              return SizedBox.shrink();
+                            }
+                          },
+                        ))
                   ],
                 ),
               ),
