@@ -1,16 +1,13 @@
 // Flutter imports:
-import 'package:dalily/pages/guidePage.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:firebase_core/firebase_core.dart';
 
 // Project imports:
-import 'fetch_data.dart';
 import 'firebase_options.dart';
 import 'pages/login_page.dart';
 import 'models/tour_guide.dart';
-import 'pages/guider_profile.dart';
 
 List<TourGuide>? profileGuide;
 
@@ -19,7 +16,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  profileGuide = await getTourGuides();
   runApp(const MyApp());
 }
 
