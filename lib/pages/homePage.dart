@@ -1,8 +1,9 @@
 import 'package:dalily/assets/consts.dart';
+import 'package:dalily/pages/profilePage.dart';
+import 'package:dalily/pages/savePage.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../widgets/placesCategory.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'home.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -13,6 +14,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  late int page;
+  int index = 1;
+  final screens = [
+    SavePage(),
+    HomePage(),
+    ProfilePage(),
+  ];
 
   void _incrementCounter() {
     setState(() {
@@ -23,77 +31,23 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CbackgroundColor,
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(8, 40, 8, 6),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  height: 90,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text("Find your dream trip"),
-                      Icon(Icons.search_rounded),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 140,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.all(8),
-                  children: const <Widget>[
-                    PlacesCategory(icon: FontAwesomeIcons.city, text: "cities"),
-                    PlacesCategory(icon: FontAwesomeIcons.tree, text: "nature"),
-                    PlacesCategory(
-                        icon: FontAwesomeIcons.earthOceania, text: "cities"),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: SizedBox(
-                    height: 40,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: const [
-                        Text('Popular'),
-                        Text("Public"),
-                        Text("privet"),
-                        Text('Recomanded')
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  height: 320,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Container(
-                        height: 100,
-                        width: 80,
-                        color: Colors.white,
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
+        backgroundColor: KbackgroundColor,
+        bottomNavigationBar: CurvedNavigationBar(
+          index: index,
+          backgroundColor: KbackgroundColor,
+          animationCurve: Curves.linearToEaseOut,
+          animationDuration: const Duration(milliseconds: 300),
+          items: const <Widget>[
+            Icon(Icons.bookmark_rounded, size: 30),
+            Icon(Icons.home, size: 30),
+            Icon(Icons.person_rounded, size: 30),
+          ],
+          onTap: (index) {
+            setState(() {
+              this.index = index;
+            });
+          },
         ),
-      ),
-    );
+        body: screens[index]);
   }
 }
