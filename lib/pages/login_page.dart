@@ -1,3 +1,4 @@
+import 'package:dalily/pages/username_page.dart';
 import 'package:flutter/material.dart';
 import '../assets/consts.dart';
 
@@ -31,7 +32,7 @@ class LoginPage extends StatelessWidget {
         ),
         Column(children: <Widget>[
           SizedBox(
-            height: height * 0.15,
+            height: height * 0.1,
           ),
           SizedBox(
             width: width * 0.6,
@@ -51,13 +52,16 @@ class LoginPage extends StatelessWidget {
                 )),
           ),
           TextButton(
-            onPressed: () {}, //TODO
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const Username_Page()));
+            }, //TODO
             child: const Text("Already have an account",
                 style: TextStyle(color: Color(0xFF3988C9), fontSize: 15)),
           ),
         ]),
         const SizedBox(
-          height: 10,
+          height: 5,
         ),
         TextButton(
           onPressed: () {},
