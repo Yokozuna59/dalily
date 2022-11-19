@@ -9,11 +9,12 @@ class ProfileCard extends StatelessWidget {
       required this.quote,
       required this.image,
       required this.price});
-  double price;
+
+  num price;
   String? name;
   String? quote;
-  double? rate;
-  Image image;
+  num? rate;
+  String image;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +45,5 @@ class ProfileCard extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }
