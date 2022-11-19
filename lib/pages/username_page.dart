@@ -1,23 +1,17 @@
-import 'dart:developer';
-
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_login/flutter_login.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../assets/consts.dart';
 import '../auth.dart';
+import 'homePage.dart';
 
-class Username_Page extends StatefulWidget {
-  const Username_Page({super.key});
+class UsernamePage extends StatefulWidget {
+  const UsernamePage({super.key});
 
   @override
-  State<Username_Page> createState() => _Username_PageState();
+  State<UsernamePage> createState() => _UsernamePageState();
 }
 
 // ignore: camel_case_types
-class _Username_PageState extends State<Username_Page> {
+class _UsernamePageState extends State<UsernamePage> {
   final passwordController = TextEditingController();
   final usernameController = TextEditingController();
 
@@ -105,7 +99,10 @@ class _Username_PageState extends State<Username_Page> {
                     onPressed: () async {
                       if (await singin(
                           usernameController.text, passwordController.text)) {
-                        Navigator.pop(context);
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MyHomePage()));
                       } else {}
                     },
                     child: const Text(
