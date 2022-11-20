@@ -1,10 +1,14 @@
+import 'package:dalily/models/tour_guide.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../fetch_data.dart';
+
 class ProfileCard extends StatelessWidget {
   ProfileCard(
-      {required this.name,
+      {super.key,
+      required this.name,
       required this.rate,
       required this.quote,
       required this.image,

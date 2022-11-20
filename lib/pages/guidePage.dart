@@ -1,5 +1,6 @@
 import 'package:dalily/assets/consts.dart';
 import 'package:dalily/fetch_data.dart';
+import 'package:dalily/models/tour_guide.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 
@@ -22,7 +23,8 @@ class GuidePage extends StatelessWidget {
               children: [
                 Stack(
                   children: <Widget>[
-                    Image.asset("lib/assets/h1.jpg"),
+                    Image.network(
+                        'https://firebasestorage.googleapis.com/v0/b/dalily-56933.appspot.com/o/pexels-ramkumar-ramachandran-10170838%20(1).jpg?alt=media&token=2cdfd547-0870-4eb8-8291-f8f83c4537cb'),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
                       child: Positioned.fill(
@@ -69,7 +71,7 @@ class GuidePage extends StatelessWidget {
                               const SizedBox(
                                 height: 10,
                               ),
-                              Text("Japan", style: KdistinationStyle),
+                              Text("USA San Gei", style: KdistinationStyle),
                             ],
                           ), //TODO namae
                         ),
@@ -83,9 +85,36 @@ class GuidePage extends StatelessWidget {
                     )
                   ],
                 ),
-                Column(
-                  children: <Widget>[],
-                ),
+                FutureBuilder(
+                    future: getTourGuides(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final tourGuides = snapshot.data as List<TourGuide>;
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height,
+                          child: ListView.builder(
+                            scrollDirection: Axis.vertical,
+                            itemCount: tourGuides.length,
+                            itemBuilder: (context, index) {
+                              final tourGuide = tourGuides[index];
+                              return Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: ProfileCard(
+                                  price: tourGuide.bill.toInt().toString(),
+                                  quote: tourGuide.quote,
+                                  image: tourGuide.imageURL,
+                                  name: tourGuide.name,
+                                  rate: tourGuide.rating.toInt().toString(),
+                                ),
+                              );
+                            },
+                          ),
+                        );
+                      } else {
+                        return SizedBox.shrink();
+                      }
+                    }),
               ],
             ),
           )

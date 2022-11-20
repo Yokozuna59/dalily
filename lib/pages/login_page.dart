@@ -29,12 +29,17 @@ class LoginPage extends StatelessWidget {
                 opacity: const AlwaysStoppedAnimation(0.05),
               ),
             ),
-            Container(
-              width: width * 0.6,
-              height: height * 0.6,
-              child: Padding(
-                  padding: EdgeInsets.fromLTRB(100, 0, 0, 20),
-                  child: Image.asset("lib/assets/logoV3-removebg-preview.png")),
+            Center(
+              child: Container(
+                width: width * 0.6,
+                height: height * 0.6,
+                child: Center(
+                  child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: Image.asset(
+                          "lib/assets/logoV3-removebg-preview.png")),
+                ),
+              ),
             )
           ],
         ),
@@ -47,7 +52,7 @@ class LoginPage extends StatelessWidget {
             height: height * 0.08,
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF3988C9),
+                  backgroundColor: const Color.fromRGBO(21, 52, 77, 1),
                   shadowColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -56,8 +61,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {},
                 child: const Text(
                   "Create a new account",
-                  style: TextStyle(
-                      color: Color.fromRGBO(21, 52, 77, 1), fontSize: 18),
+                  style: TextStyle(color: Colors.white, fontSize: 18),
                 )),
           ),
           TextButton(

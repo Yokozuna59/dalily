@@ -85,15 +85,15 @@ class _HomePageState extends State<HomePage> {
                       scrollDirection: Axis.horizontal,
                       children: [
                         SortsHome(
-                          text: "Public",
+                          text: "Popular",
                           style: style,
                         ),
                         SortsHome(
-                          text: "privet",
+                          text: "USA",
                           style: style,
                         ),
                         SortsHome(
-                          text: 'Recomanded',
+                          text: 'Turkey',
                           style: style,
                         )
                       ],
